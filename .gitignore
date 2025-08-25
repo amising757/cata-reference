@@ -1,0 +1,59 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Dependencies
+node_modules/
+*.log
+
+# Ruby/Rails
+/backend/tmp/
+/backend/log/
+/backend/vendor/bundle/
+/backend/.bundle/
+*.gem
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# React/Frontend
+/frontend/build/
+/frontend/dist/
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+# Database
+*.sqlite3
+/backend/db/*.sqlite3
+/backend/db/*.sqlite3-*
+
+# Environment files
+.env
+.env.local
+
+# OS files
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Serena MCP files
+.serena/
+
+# Package manager files
+yarn-error.log
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Rails specific
+/backend/config/master.key
+/backend/config/credentials/*.key
