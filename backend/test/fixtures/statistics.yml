@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  season: MyString
+  points: 9.99
+  rebounds: 9.99
+  assists: 9.99
+
+two:
+  player: two
+  season: MyString
+  points: 9.99
+  rebounds: 9.99
+  assists: 9.99
