@@ -10,24 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_25_213414) do
-  create_table "awards", force: :cascade do |t|
-    t.string "name"
-    t.string "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "player_awards", force: :cascade do |t|
-    t.integer "player_id", null: false
-    t.integer "award_id", null: false
-    t.string "season"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["award_id"], name: "index_player_awards_on_award_id"
-    t.index ["player_id"], name: "index_player_awards_on_player_id"
-  end
-
+ActiveRecord::Schema[8.0].define(version: 2025_08_26_155259) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "position"
@@ -35,6 +18,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_25_213414) do
     t.string "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "nicknames"
+    t.text "awards"
   end
 
   create_table "statistics", force: :cascade do |t|
@@ -48,7 +33,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_25_213414) do
     t.index ["player_id"], name: "index_statistics_on_player_id"
   end
 
-  add_foreign_key "player_awards", "awards"
-  add_foreign_key "player_awards", "players"
   add_foreign_key "statistics", "players"
 end

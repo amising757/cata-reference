@@ -12,28 +12,26 @@ A fun basketball-reference.com clone for the Cata rec league!
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Rails 8 API + PostgreSQL (SQLite in development)
-- **Frontend**: React + TypeScript + Tailwind CSS
-- **Hosting**: Railway (backend) + Vercel (frontend)
+- **Full-Stack**: Rails 8 + PostgreSQL (SQLite in development)
+- **Frontend**: Server-side HTML with Tailwind CSS + Stimulus JS
+- **Hosting**: Railway (single deployment)
 
 ## 🚀 Getting Started
 
-### Backend (Rails API)
+### Full Rails Application
 ```bash
 cd backend
 bundle install
 rails db:create db:migrate db:seed
-rails server -p 3001
+
+# Development (with live CSS reloading)
+bin/dev
+
+# Or standard Rails server
+rails server
 ```
 
-### Frontend (React)
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Visit http://localhost:5173 to view the site!
+Visit http://localhost:3000 to view the site!
 
 ## 📊 Sample Data
 
@@ -66,15 +64,21 @@ Matches basketball-reference.com aesthetic:
 ## 🚀 Deployment
 
 Ready for free hosting:
-- **Backend**: Railway free tier (PostgreSQL included)
-- **Frontend**: Vercel/Netlify free tier
-- **Domain**: Point cata-reference.com to frontend
+- **Full App**: Railway free tier (PostgreSQL included)
+- **Domain**: Point cata-reference.com to Railway deployment
 - **Total cost**: ~$15/year (domain only!)
+
+Single command deployment:
+```bash
+# Deploy to Railway
+railway deploy
+```
 
 ## 📱 Pages
 
 - **Home** (`/`) - Featured players and search
-- **Players** (`/players`) - Full player grid with filters
+- **Players** (`/players`) - Full player grid with filters  
 - **Player Profile** (`/players/:id`) - Individual stats and awards
+- **Search** - Real-time player search with Stimulus JS
 
 Built with ❤️ for the Cata Basketball League!

@@ -1,85 +1,56 @@
 # Clear existing data
-PlayerAward.destroy_all
 Statistic.destroy_all
 Player.destroy_all
-Award.destroy_all
 
-# Create Awards
-mvp = Award.create!(name: "MVP", color: "#FFD700")
-all_star = Award.create!(name: "All-Star", color: "#FF6B35") 
-champion = Award.create!(name: "Champion", color: "#4CAF50")
-
-# Create Players
+# Real Catamaran League Players - Skeleton for Manual Updates
+# Update positions, teams, and stats as needed, then run: rails db:reset
 players_data = [
-  { name: "Marcus Johnson", position: "Point Guard", team: "Thunder", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Tyler Rodriguez", position: "Shooting Guard", team: "Lightning", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Kevin Williams", position: "Small Forward", team: "Storm", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Anthony Davis", position: "Power Forward", team: "Thunder", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Chris Thompson", position: "Center", team: "Lightning", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Jordan Martinez", position: "Point Guard", team: "Storm", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Brandon Lee", position: "Shooting Guard", team: "Thunder", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Alex Parker", position: "Small Forward", team: "Lightning", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Daniel Brown", position: "Power Forward", team: "Storm", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Ryan Wilson", position: "Center", team: "Thunder", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Nathan Garcia", position: "Point Guard", team: "Lightning", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Isaiah Clark", position: "Shooting Guard", team: "Storm", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Cameron Smith", position: "Small Forward", team: "Thunder", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Darius Jackson", position: "Power Forward", team: "Lightning", photo_url: "https://via.placeholder.com/300x300" },
-  { name: "Terrell White", position: "Center", team: "Storm", photo_url: "https://via.placeholder.com/300x300" }
+  # Separate multiple nicknames with commas, e.g., "Lightning, The Hammer"
+  { name: "Aakash Parthasarathy", position: "SF", team: "Brownball", photo_url: "aakash_parthasarathy.jpg", nicknames: "P, Partha", awards: "2018 MIP" },
+  { name: "Amit Singh", position: "PF", team: "Nueva/BB", photo_url: "amit_singh.jpg", nicknames: "The Cat, Yao", awards: "HOF Crashout" },
+  { name: "Arnav Gurudatt", position: "SF", team: "Brownball", photo_url: "arnav_gurudatt.jpg", nicknames: "Kobra", awards: "HOF Rage Quitter" },
+  { name: "Harris Ting", position: "SG", team: "SMHS/BB", photo_url: "harris_ting.jpeg", nicknames: "Ting Ting", awards: "2019 MIP" },
+  { name: "Makesh Srikannan", position: "PF", team: "SMHS", photo_url: "makesh_srikannan.jpg", nicknames: "The Brao", awards: "2024 All-Star" },
+  { name: "Zach Lo", position: "SG", team: "?", photo_url: "zach_lo.jpeg", nicknames: "Plan Z, Go Get It Out The Net, Zach Attack, Snack Randolph", awards: "" },
+  
+  { name: "Aakash Srinivasan", position: "PG", team: "Brownball", photo_url: "aakash_srinivasan.JPG", nicknames: "The Brown Mamba, Provit", awards: "2024 Champion, 2023 All-Star" },
+  { name: "Chris Yen", position: "PG", team: "Brownball", photo_url: "chris_yen.jpg", nicknames: "6 seconds or less", awards: "Rubiks Cube God" },
+  { name: "James Tilson", position: "PF", team: "Nueva", photo_url: "james_tilson.JPG", nicknames: "Santi, Badri's GOAT", awards: "2020 MIP" },
+  { name: "Nikhil Thakur", position: "SG", team: "Brownball/Nueva", photo_url: "nikhil_thakur.jpeg", nicknames: "1 a day", awards: "" },
+  { name: "Sameer Bopardikar", position: "C", team: "Brownball", photo_url: "sameer_bopardikar.JPG", nicknames: "The Expert, Creature of the Night", awards: "2017 MIP, 2018 3rd Team" },
+  
+  { name: "Arjun Manoj", position: "SG", team: "Brownball", photo_url: "arjun_manoj.jpeg", nicknames: "TJ Manojel", awards: "2012 1st Team" },
+  { name: "Felmon Madronio", position: "PG", team: "God Squad", photo_url: "felmon_madronio.jpeg", nicknames: "Felmoa, One Punch Man", awards: "2024 All-Star" },
+  { name: "Pranav Ram", position: "PG", team: "Nueva", photo_url: "pranav_ram.jpg", nicknames: "Traitor", awards: "" },
+  { name: "Rahul Munugala", position: "C", team: "Brownball", photo_url: "rahul_munugala.jpg", nicknames: "The Elephant", awards: "3rd Team All Defense" },
+  { name: "Thinura Dharmasiri", position: "SG", team: "ex-BB", photo_url: "thinura_dharmasiri.jpeg", nicknames: "T Diddy", awards: "" }
 ]
+
+# TODO: Update positions above, then uncomment and modify stats below as needed
+# Example positions: "Point Guard", "Shooting Guard", "Small Forward", "Power Forward", "Center"
 
 created_players = players_data.map { |data| Player.create!(data) }
 
-# Create Statistics for 2023 and 2024 seasons
+# Create placeholder statistics (update with real stats later)
 created_players.each do |player|
-  # 2023 Season
+  # 2023 Season - TODO: Replace with real stats
   Statistic.create!(
     player: player,
     season: "2023",
-    points: rand(8.0..25.0).round(1),
-    rebounds: rand(3.0..12.0).round(1),
-    assists: rand(2.0..9.0).round(1)
+    points: 15.0,  # Update with real data
+    rebounds: 8.0, # Update with real data  
+    assists: 5.0   # Update with real data
   )
   
-  # 2024 Season  
+  # 2024 Season - TODO: Replace with real stats
   Statistic.create!(
     player: player,
-    season: "2024",
-    points: rand(8.0..25.0).round(1),
-    rebounds: rand(3.0..12.0).round(1),
-    assists: rand(2.0..9.0).round(1)
+    season: "2024", 
+    points: 16.0,  # Update with real data
+    rebounds: 8.5, # Update with real data
+    assists: 5.2   # Update with real data
   )
-end
-
-# Assign Awards to various players
-# MVPs
-PlayerAward.create!(player: created_players[0], award: mvp, season: "2023")
-PlayerAward.create!(player: created_players[2], award: mvp, season: "2024")
-
-# All-Stars (multiple per season)
-all_star_2023 = [0, 1, 3, 6, 8]
-all_star_2024 = [2, 4, 5, 9, 11]
-
-all_star_2023.each do |i|
-  PlayerAward.create!(player: created_players[i], award: all_star, season: "2023")
-end
-
-all_star_2024.each do |i|
-  PlayerAward.create!(player: created_players[i], award: all_star, season: "2024")
-end
-
-# Champions (team awards)
-thunder_players = created_players.select { |p| p.team == "Thunder" }
-thunder_players.each do |player|
-  PlayerAward.create!(player: player, award: champion, season: "2023")
-end
-
-lightning_players = created_players.select { |p| p.team == "Lightning" }
-lightning_players.each do |player|
-  PlayerAward.create!(player: player, award: champion, season: "2024")
 end
 
 puts "Created #{Player.count} players"
-puts "Created #{Award.count} awards"
 puts "Created #{Statistic.count} statistics"
-puts "Created #{PlayerAward.count} player awards"

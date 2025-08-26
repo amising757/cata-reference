@@ -9,7 +9,26 @@ gem "sqlite3", "~> 2.1", group: [:development, :test]
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+gem "jbuilder"
+
+# Use Sass to process CSS
+gem "dartsass-rails"
+gem "sassc-rails"
+
+# Use Stimulus for JavaScript interactions
+gem "stimulus-rails"
+
+# Use Turbo for SPA-like performance
+gem "turbo-rails"
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
+
+# Use Importmap to manage JavaScript modules [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+
+# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
+gem "tailwindcss-rails"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -46,4 +65,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+end
+
+group :development do
+  # Process manager for Procfile-based applications
+  gem "foreman", "~> 0.90"
 end

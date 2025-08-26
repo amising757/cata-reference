@@ -2,7 +2,7 @@ class Api::PlayersController < ApplicationController
   before_action :set_player, only: [:show]
 
   def index
-    @players = Player.includes(:awards, :statistics).all
+    @players = Player.includes(:statistics).all
     render json: @players.map { |player| player_summary(player) }
   end
 
@@ -12,14 +12,14 @@ class Api::PlayersController < ApplicationController
 
   def search
     query = params[:q]
-    @players = Player.search_by_name(query).includes(:awards, :statistics)
+    @players = Player.search_by_name(query).includes(:statistics)
     render json: @players.map { |player| player_summary(player) }
   end
 
   private
 
   def set_player
-    @player = Player.includes(:awards, :statistics).find(params[:id])
+    @player = Player.includes(:statistics).find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Player not found' }, status: :not_found
   end
@@ -31,7 +31,7 @@ class Api::PlayersController < ApplicationController
       position: player.position,
       team: player.team,
       photo_url: player.photo_url,
-      awards: player.awards.map { |award| { name: award.name, color: award.color } }
+      awards: player.awards
     }
   end
 
@@ -42,13 +42,7 @@ class Api::PlayersController < ApplicationController
       position: player.position,
       team: player.team,
       photo_url: player.photo_url,
-      awards: player.player_awards.includes(:award).map do |player_award|
-        {
-          name: player_award.award.name,
-          color: player_award.award.color,
-          season: player_award.season
-        }
-      end,
+      awards: player.awards,
       statistics: player.statistics.map do |stat|
         {
           season: stat.season,

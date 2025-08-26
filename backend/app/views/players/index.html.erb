@@ -1,0 +1,46 @@
+<!-- Navigation Breadcrumbs -->
+<div style="padding: 20px 20px 10px; background: #f9f9f9; border-bottom: 1px solid #ddd;">
+  <div style="font-size: 14px; color: #666;">
+    <%= link_to "🏠 Home", root_path, style: "color: #ff6600; text-decoration: none;" %>
+    <span style="margin: 0 8px; color: #999;">›</span>
+    <span style="color: #333;">Players</span>
+  </div>
+</div>
+
+<div style="padding: 20px;">
+  <h1 style="font-size: 28px; font-weight: bold; color: #8B4513; margin-bottom: 20px;">All Players</h1>
+
+  <!-- Filters -->
+  <div style="background: #f9f9f9; border-radius: 8px; padding: 15px; margin-bottom: 20px;" data-controller="filters">
+    <%= form_with url: players_path, method: :get, data: { action: "submit->filters#submit" }, style: "display: flex; flex-wrap: wrap; gap: 15px; align-items: end;" do |f| %>
+      <div>
+        <%= f.label :team, "Team", style: "display: block; font-weight: bold; color: #8B4513; margin-bottom: 5px;" %>
+        <%= f.select :team, options_for_select([['All', 'All']] + @teams.map { |team| [team, team] }, params[:team] || 'All'), {}, { style: "border: 1px solid #ddd; border-radius: 5px; padding: 8px 12px;", data: { action: "change->filters#autoSubmit" } } %>
+      </div>
+
+      <div>
+        <%= f.label :position, "Position", style: "display: block; font-weight: bold; color: #8B4513; margin-bottom: 5px;" %>
+        <%= f.select :position, options_for_select([['All', 'All']] + @positions.map { |pos| [pos, pos] }, params[:position] || 'All'), {}, { style: "border: 1px solid #ddd; border-radius: 5px; padding: 8px 12px;", data: { action: "change->filters#autoSubmit" } } %>
+      </div>
+
+      <div>
+        <%= link_to players_path, style: "background: #ff6600; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;" do %>
+          Clear Filters
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Players Grid -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+    <% @players.each do |player| %>
+      <%= render 'shared/player_card', player: player %>
+    <% end %>
+  </div>
+
+  <% if @players.empty? %>
+    <div style="text-align: center; padding: 40px 0; color: #666;">
+      No players found matching the selected filters.
+    </div>
+  <% end %>
+</div>

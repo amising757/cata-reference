@@ -1,0 +1,32 @@
+<%= link_to player_path(player), style: "display: block; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; text-decoration: none; transition: box-shadow 0.3s; color: inherit;" do %>
+  <div style="aspect-ratio: 4/5; width: 200px; height: 250px; max-width: 200px; max-height: 250px; min-width: 200px; min-height: 250px; background: #ddd; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+    <% if player.photo_url.present? && !player.photo_url.include?('placeholder') %>
+      <%= image_tag "players/#{player.photo_url}", alt: player.name, style: "width: 100%; height: 100%; min-width: 100%; min-height: 100%; object-fit: cover; object-position: center; display: block;" %>
+    <% else %>
+      <%= image_tag "players/default-player.svg", alt: "Default player", style: "width: 100%; height: 100%; min-width: 100%; min-height: 100%; object-fit: cover; object-position: center; display: block;" %>
+    <% end %>
+  </div>
+  
+  <div style="padding: 15px;">
+    <h3 style="font-weight: bold; font-size: 18px; color: #333; margin: 0 0 8px 0;"><%= player.name %></h3>
+    <p style="color: #666; margin: 0 0 12px 0;"><%= player.position %> • <%= player.team %></p>
+    
+    <% if player.awards.present? && !player.awards.strip.empty? %>
+      <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+        <% player.awards.split(',').first(2).each do |award| %>
+          <span 
+            class="award-badge"
+            style="padding: 4px 8px; font-size: 11px; font-weight: bold; border-radius: 12px; background: #f60; color: white;"
+          >
+            <%= award.strip %>
+          </span>
+        <% end %>
+        <% if player.awards.split(',').length > 2 %>
+          <span style="padding: 4px 8px; font-size: 11px; font-weight: bold; border-radius: 12px; background: #ddd; color: #666;">
+            +<%= player.awards.split(',').length - 2 %>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

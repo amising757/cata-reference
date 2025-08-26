@@ -1,0 +1,122 @@
+<% 
+  # Use player's actual nicknames or default demo ones
+  if @player.nicknames.present?
+    player_nicknames = @player.nicknames.split(", ").map(&:strip)
+  else
+    # Fallback demo nicknames
+    nicknames = ["Lightning", "The Hammer", "Clutch", "The Beast", "Ace", "Thunder", "The Rocket", "Ice", "Flash", "The Wall", "Smooth", "The Machine"]
+    player_nicknames = nicknames.slice(0, 2 + (@player.id % 2))
+  end
+%>
+
+
+<!-- Navigation Breadcrumbs -->
+<div style="padding: 20px 20px 10px; background: #f9f9f9; border-bottom: 1px solid #ddd;">
+  <div style="font-size: 14px; color: #666;">
+    <%= link_to "🏠 Home", root_path, style: "color: #ff6600; text-decoration: none;" %>
+    <span style="margin: 0 8px; color: #999;">›</span>
+    <%= link_to "Players", players_path, style: "color: #ff6600; text-decoration: none;" %>
+    <span style="margin: 0 8px; color: #999;">›</span>
+    <span style="color: #333;"><%= @player.name %></span>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div style="padding: 20px; display: flex; gap: 20px;">
+  <!-- Player Info Section -->
+  <div style="flex: 1; display: flex; gap: 20px;">
+    <!-- Player Image -->
+    <div class="player-image">
+      <% if @player.photo_url.present? && !@player.photo_url.include?('placeholder') %>
+        <%= image_tag "players/#{@player.photo_url}", alt: @player.name %>
+      <% else %>
+        <%= image_tag "players/default-player.svg", alt: "Default player" %>
+      <% end %>
+    </div>
+
+    <!-- Player Details -->
+    <div style="flex: 1;">
+      <h1 style="font-size: 36px; font-weight: bold; margin: 0 0 10px 0; color: #333;"><%= @player.name %></h1>
+      
+      <!-- Nicknames -->
+      <div style="font-size: 18px; color: #666; font-style: italic; margin: 0 0 15px 0;">
+        "<%= player_nicknames.join('", "') %>"
+      </div>
+
+      <!-- Basic Info -->
+      <div style="margin: 15px 0;">
+        <div style="margin: 8px 0; font-size: 16px;">
+          <strong style="color: #8B4513;">Position:</strong> <%= @player.position %>
+        </div>
+        <div style="margin: 8px 0; font-size: 16px;">
+          <strong style="color: #8B4513;">Team:</strong> <%= @player.team %>
+        </div>
+        <div style="margin: 8px 0; font-size: 16px;">
+          <strong style="color: #8B4513;">Jersey:</strong> #<%= @player.id + 20 %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Awards Section -->
+  <div style="width: 300px; background: #f9f9f9; padding: 20px; border-radius: 8px;">
+    <div style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #8B4513;">
+      🏆 Achievements
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <% if @player.awards.present? && !@player.awards.strip.empty? %>
+        <% @player.awards.split(',').each do |award| %>
+          <div class="award-badge" style="padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; background: #f60; color: white; min-width: 80px; text-align: center;">
+            <%= award.strip %>
+          </div>
+        <% end %>
+      <% else %>
+        <p style="color: #666;">No awards yet</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Stats Section -->
+<div style="margin-top: 30px; padding: 20px 20px 0; border-top: 2px solid #8B4513;">
+  <div style="font-size: 20px; font-weight: bold; margin-bottom: 15px; color: #8B4513;">
+    📊 Statistics
+  </div>
+  
+  <div style="overflow-x: auto;">
+    <table class="stats-table">
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Points</th>
+          <th>Rebounds</th>
+          <th>Assists</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @player.statistics.each_with_index do |stat, index| %>
+          <tr>
+            <td style="font-weight: bold; text-align: left;"><%= stat.season %></td>
+            <td><%= stat.points %></td>
+            <td><%= stat.rebounds %></td>
+            <td><%= stat.assists %></td>
+          </tr>
+        <% end %>
+        <% if @player.statistics.count > 1 %>
+          <tr style="background: #fff3cd; font-weight: bold;">
+            <td style="font-weight: bold; text-align: left;">Career Avg</td>
+            <td>
+              <%= (@player.statistics.sum(:points).to_f / @player.statistics.count).round(1) %>
+            </td>
+            <td>
+              <%= (@player.statistics.sum(:rebounds).to_f / @player.statistics.count).round(1) %>
+            </td>
+            <td>
+              <%= (@player.statistics.sum(:assists).to_f / @player.statistics.count).round(1) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

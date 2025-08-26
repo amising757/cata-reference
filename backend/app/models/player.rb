@@ -1,6 +1,4 @@
 class Player < ApplicationRecord
-  has_many :player_awards, dependent: :destroy
-  has_many :awards, through: :player_awards
   has_many :statistics, dependent: :destroy
   
   validates :name, presence: true

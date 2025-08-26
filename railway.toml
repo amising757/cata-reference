@@ -1,10 +1,10 @@
 [build]
-  buildCommand = "cd backend && bundle install"
+  buildCommand = "cd backend && bundle install && ./bin/rails tailwindcss:build && ./bin/rails assets:precompile"
 
 [deploy]
   startCommand = "cd backend && ./bin/railway-start"
   restartPolicyType = "on_failure"
 
 [[services]]
-  name = "backend"
+  name = "cata-reference"
   source = "backend"
