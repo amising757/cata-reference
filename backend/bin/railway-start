@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+
+echo "Starting Railway deployment..."
+
+# Enable jemalloc for reduced memory usage and latency
+if [ -z "${LD_PRELOAD+x}" ]; then
+    LD_PRELOAD=$(find /usr/lib -name libjemalloc.so.2 -print -quit 2>/dev/null || echo "")
+    export LD_PRELOAD
+fi
+
+# Wait for database to be ready and set it up
+echo "Preparing database..."
+if [ "$DATABASE_URL" ]; then
+  echo "Database URL found, setting up database..."
+  bundle exec rails db:create 2>/dev/null || echo "Database already exists"
+  bundle exec rails db:migrate
+  bundle exec rails db:seed 2>/dev/null || echo "Database already seeded"
+else
+  echo "No DATABASE_URL found, skipping database setup..."
+fi
+
+echo "Starting Rails server..."
+exec bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}

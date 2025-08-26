@@ -20,6 +20,7 @@ node_modules/
 # React/Frontend
 /frontend/build/
 /frontend/dist/
+/frontend/.vite/
 /frontend/.env.local
 /frontend/.env.development.local
 /frontend/.env.test.local

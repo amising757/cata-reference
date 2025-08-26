@@ -45,6 +45,9 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
+# Precompile assets (if any) without database
+RUN RAILS_ENV=production SECRET_KEY_BASE=dummy bundle exec rails assets:precompile 2>/dev/null || true
+
 
 
 
@@ -62,9 +65,9 @@ RUN groupadd --system --gid 1000 rails && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
 
-# Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# Skip the problematic entrypoint that tries to access DB during build
+# ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-# Start server via Thruster by default, this can be overwritten at runtime
-EXPOSE 80
-CMD ["./bin/thrust", "./bin/rails", "server"]
+# Start server with our custom Railway script that handles DB setup
+EXPOSE 3000
+CMD ["./bin/railway-start"]

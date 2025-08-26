@@ -1,8 +1,8 @@
 [build]
-  buildCommand = "cd backend && bundle install && rails assets:precompile"
+  buildCommand = "cd backend && bundle install"
 
 [deploy]
-  startCommand = "cd backend && rails server -b 0.0.0.0 -p $PORT"
+  startCommand = "cd backend && ./bin/railway-start"
   restartPolicyType = "on_failure"
 
 [[services]]
