@@ -13,7 +13,7 @@ players_data = [
   { name: "Makesh Srikannan", position: "PF", team: "SMHS", photo_url: "makesh_srikannan.jpg", nicknames: "The Brao", awards: "2024 All-Star" },
   { name: "Zach Lo", position: "SG", team: "?", photo_url: "zach_lo.jpeg", nicknames: "Plan Z, Go Get It Out The Net, Zach Attack, Snack Randolph", awards: "" },
   { name: "Saathvik Dirisala", position: "SG", team: "Brownball", photo_url: "saathvik_dirisala.jpeg", nicknames: "2k, Kyrie", awards: "HOF Handle" },
-  { name: "Badri Viswanathan", position: "C", team: "Young Bucks", photo_url: "badri_viswanathan.jpeg", nicknames: "Temu Shams, Big Body Benz", awards: "HOF Giannis Glazer" },
+  { name: "Badri Viswanathan", position: "C", team: "Young Bucks", photo_url: "badri_viswanathan.jpg", nicknames: "Temu Shams, Big Body Benz", awards: "HOF Giannis Glazer" },
   
   { name: "Aakash Srinivasan", position: "PG", team: "Brownball", photo_url: "aakash_srinivasan.JPG", nicknames: "The Brown Mamba, Provit", awards: "2024 Champion, 2023 All-Star" },
   { name: "Chris Yen", position: "PG", team: "Brownball", photo_url: "chris_yen.jpg", nicknames: "6 seconds or less", awards: "Rubiks Cube God" },
