@@ -12,12 +12,14 @@ players_data = [
   { name: "Harris Ting", position: "SG", team: "SMHS/BB", photo_url: "harris_ting.jpeg", nicknames: "Ting Ting", awards: "2019 MIP" },
   { name: "Makesh Srikannan", position: "PF", team: "SMHS", photo_url: "makesh_srikannan.jpg", nicknames: "The Brao", awards: "2024 All-Star" },
   { name: "Zach Lo", position: "SG", team: "?", photo_url: "zach_lo.jpeg", nicknames: "Plan Z, Go Get It Out The Net, Zach Attack, Snack Randolph", awards: "" },
+  { name: "Saathvik Dirisala", position: "SG", team: "Brownball", photo_url: "saathvik_dirisala.jpeg", nicknames: "2k, Kyrie", awards: "HOF Handle" },
+  { name: "Badri Viswanathan", position: "C", team: "Young Bucks", photo_url: "badri_viswanathan.jpeg", nicknames: "Temu Shams, Big Body Benz", awards: "HOF Giannis Glazer" },
   
   { name: "Aakash Srinivasan", position: "PG", team: "Brownball", photo_url: "aakash_srinivasan.JPG", nicknames: "The Brown Mamba, Provit", awards: "2024 Champion, 2023 All-Star" },
   { name: "Chris Yen", position: "PG", team: "Brownball", photo_url: "chris_yen.jpg", nicknames: "6 seconds or less", awards: "Rubiks Cube God" },
   { name: "James Tilson", position: "PF", team: "Nueva", photo_url: "james_tilson.JPG", nicknames: "Santi, Badri's GOAT", awards: "2020 MIP" },
   { name: "Nikhil Thakur", position: "SG", team: "Brownball/Nueva", photo_url: "nikhil_thakur.jpeg", nicknames: "1 a day", awards: "" },
-  { name: "Sameer Bopardikar", position: "C", team: "Brownball", photo_url: "sameer_bopardikar.JPG", nicknames: "The Expert, Creature of the Night", awards: "2017 MIP, 2018 3rd Team" },
+  { name: "Sameer Bopardikar", position: "C", team: "Brownball", photo_url: "sameer_bopardikar.JPG", nicknames: "The Expert, Creature of the Night, BBIM", awards: "2017 MIP, 2018 3rd Team" },
   
   { name: "Arjun Manoj", position: "SG", team: "Brownball", photo_url: "arjun_manoj.jpeg", nicknames: "TJ Manojel", awards: "2012 1st Team" },
   { name: "Felmon Madronio", position: "PG", team: "God Squad", photo_url: "felmon_madronio.jpeg", nicknames: "Felmoa, One Punch Man", awards: "2024 All-Star" },
