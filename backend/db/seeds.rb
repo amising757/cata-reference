@@ -26,7 +26,11 @@ players_data = [
  { name: "Pranav Ram", position: "PG", team: "Nueva", photo_url: "pranav_ram.jpg", nicknames: "Traitor", awards: "", jersey_number: 26, years_of_experience: "5" },
  { name: "Rahul Munugala", position: "C", team: "Brownball", photo_url: "rahul_munugala.jpg", nicknames: "The Elephant, Capela, Ben, A-Teamer", awards: "3rd Team All Defense", jersey_number: 30, years_of_experience: "6" },
  { name: "Thinura Dharmasiri", position: "SG", team: "ex-BB", photo_url: "thinura_dharmasiri.jpeg", nicknames: "Rodman, T Diddy", awards: "", jersey_number: 17, years_of_experience: "1" },
-  { name: "Karthik Viswanathan", position: "PG", team: "Young Bucks", photo_url: "karthik_viswanathan.jpeg", nicknames: "K, MP(K), Noah Lyles", awards: "World Champion of What?", jersey_number: 18, years_of_experience: "3" }
+  { name: "Karthik Viswanathan", position: "PG", team: "Young Bucks", photo_url: "karthik_viswanathan.jpeg", nicknames: "K, MP(K), Noah Lyles", awards: "World Champion of What?", jersey_number: 18, years_of_experience: "3" },
+  { name: "Chris Martin", position: "Groupie", team: "Nueva", photo_url: "chris_martin.jpeg", nicknames: "CMart, Coldplay", awards: "HOF Running from Smoke, HR's worst nightmare", jersey_number: 69, years_of_experience: "-1" },
+  { name: "Jason Wu", position: "SF", team: "Aragon", photo_url: "jason_wu.jpeg", nicknames: "J, J Swish, the other Jason, Jason (from Jason and Jo)", awards: "6 Man of the Rec League", jersey_number: 4, years_of_experience: "6" },
+  { name: "Jeremy Dumalig", position: "PG/SG", team: "Nueva", photo_url: "jeremy_dumalig.jpeg", nicknames: "Jer, Jeremey, Dumaligma, JD (make em) Dance, Jeremiah, Stanley", awards: "50/40/80 Club, 1st team All League, Brooklyn FO, Deadeye", jersey_number: 5, years_of_experience: "7" },
+  { name: "Josh Francis", position: "SF", team: "Nueva", photo_url: "josh_francis.jpeg", nicknames: "Translucent Mamba, Stanford, J Fresh", awards: "HOF Practice Player, HOF Summer League Player", jersey_number: 7, years_of_experience: "7" }
 ]
 
 # TODO: Update positions above, then uncomment and modify stats below as needed
