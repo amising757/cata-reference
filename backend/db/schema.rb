@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_26_155259) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_28_015845) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "position"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_26_155259) do
     t.datetime "updated_at", null: false
     t.text "nicknames"
     t.text "awards"
+    t.integer "jersey_number"
   end
 
   create_table "statistics", force: :cascade do |t|

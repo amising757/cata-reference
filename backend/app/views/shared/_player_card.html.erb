@@ -9,7 +9,12 @@
   
   <div style="padding: 15px;">
     <h3 style="font-weight: bold; font-size: 18px; color: #333; margin: 0 0 8px 0;"><%= player.name %></h3>
-    <p style="color: #666; margin: 0 0 12px 0;"><%= player.position %> • <%= player.team %></p>
+    <p style="color: #666; margin: 0 0 12px 0;">
+      <%= player.position %> • <%= player.team %>
+      <% if player.jersey_number.present? %>
+        • #<%= player.jersey_number %>
+      <% end %>
+    </p>
     
     <% if player.awards.present? && !player.awards.strip.empty? %>
       <div style="display: flex; flex-wrap: wrap; gap: 5px;">
