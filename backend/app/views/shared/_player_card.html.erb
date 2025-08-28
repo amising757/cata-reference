@@ -14,6 +14,9 @@
       <% if player.jersey_number.present? %>
         • #<%= player.jersey_number %>
       <% end %>
+      <% if player.years_of_experience.present? %>
+        • <%= player.years_of_experience == "?" ? "Unknown exp" : "#{player.years_of_experience} #{'year'.pluralize(player.years_of_experience.to_i)} exp" %>
+      <% end %>
     </p>
     
     <% if player.awards.present? && !player.awards.strip.empty? %>

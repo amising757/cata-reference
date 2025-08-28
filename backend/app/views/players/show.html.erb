@@ -56,6 +56,12 @@
             <strong style="color: #8B4513;">Jersey:</strong> #<%= @player.jersey_number %>
           </div>
         <% end %>
+        <% if @player.years_of_experience.present? %>
+          <div style="margin: 8px 0; font-size: 16px;">
+            <strong style="color: #8B4513;">Years of Experience:</strong> 
+            <%= @player.years_of_experience == "?" ? "Unknown" : "#{@player.years_of_experience} #{'season'.pluralize(@player.years_of_experience.to_i)}" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
