@@ -14,7 +14,7 @@ players_data = [
   { name: "Zach Lo", position: "SG", team: "?", photo_url: "zach_lo.jpeg", nicknames: "Plan Z, Go Get It Out The Net, Zach Attack, Snack Randolph", awards: "", jersey_number: 99 },
   { name: "Saathvik Dirisala", position: "SG", team: "Brownball", photo_url: "saathvik_dirisala.jpeg", nicknames: "2k, Kyrie", awards: "HOF Handle", jersey_number: 11 },
   { name: "Badri Viswanathan", position: "C", team: "Young Bucks", photo_url: "badri_viswanathan.jpg", nicknames: "Temu Shams, Big Body Benz", awards: "HOF Giannis Glazer", jersey_number: 34 },
-  { name: "Aneek Patil", position: "SG", team: "Brownball/Queens(NC)", photo_url: "aneek_patil.jpg", nicknames: "Korver Bird, ", awards: "HOF Giannis Glazer", jersey_number: 85 },
+  { name: "Aneek Patil", position: "SG", team: "Brownball/Queens(NC)", photo_url: "aneek_patil.jpg", nicknames: "Korver Bird, One and Done, ", awards: "D1, He's on Sports Reference!", jersey_number: 85 },
   
   { name: "Aakash Srinivasan", position: "PG", team: "Brownball", photo_url: "aakash_srinivasan.JPG", nicknames: "The Brown Mamba, Provit", awards: "2024 Champion, 2023 All-Star", jersey_number: 41 },
   { name: "Chris Yen", position: "PG", team: "Brownball", photo_url: "chris_yen.jpg", nicknames: "6 seconds or less", awards: "Rubiks Cube God", jersey_number: 19 },
