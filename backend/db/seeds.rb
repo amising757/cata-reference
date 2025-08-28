@@ -22,7 +22,7 @@ players_data = [
   { name: "Nikhil Thakur", position: "SG", team: "Brownball/Nueva", photo_url: "nikhil_thakur.jpeg", nicknames: "1 a day", awards: "", jersey_number: 6 },
   { name: "Sameer Bopardikar", position: "C", team: "Brownball", photo_url: "sameer_bopardikar.JPG", nicknames: "The Expert, Creature of the Night, BBIM", awards: "2017 MIP, 2018 3rd Team", jersey_number: 43 },
   
-  { name: "Arjun Manoj", position: "SG", team: "Brownball", photo_url: "arjun_manoj.jpeg", nicknames: "TJ Manojel", awards: "2012 1st Team", jersey_number: 9 },
+  { name: "Arjun Manoj", position: "SG", team: "Brownball", photo_url: "arjun_manoj.jpeg", nicknames: "TJ Manojel", awards: "2012 1st Team", jersey_number: 24 },
   { name: "Felmon Madronio", position: "PG", team: "God Squad", photo_url: "felmon_madronio.jpeg", nicknames: "Felmoa, One Punch Man", awards: "2024 All-Star", jersey_number: 25 },
   { name: "Pranav Ram", position: "PG", team: "Nueva", photo_url: "pranav_ram.jpg", nicknames: "Traitor", awards: "", jersey_number: 26 },
   { name: "Rahul Munugala", position: "C", team: "Brownball", photo_url: "rahul_munugala.jpg", nicknames: "The Elephant, Capela", awards: "3rd Team All Defense", jersey_number: 30 },

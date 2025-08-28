@@ -13,6 +13,8 @@ class PlayersController < ApplicationController
 
   def show
     # Player details are loaded via @player from before_action
+    @comment = Comment.new
+    @comments = @player.comments.recent
   end
 
   def search
@@ -28,7 +30,7 @@ class PlayersController < ApplicationController
   private
 
   def set_player
-    @player = Player.includes(:statistics).find(params[:id])
+    @player = Player.includes(:statistics, :comments).find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to players_path, alert: 'Player not found'
   end

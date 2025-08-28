@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_28_015845) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_28_022830) do
+  create_table "comments", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.string "author_name"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_comments_on_player_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "position"
@@ -34,5 +43,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_28_015845) do
     t.index ["player_id"], name: "index_statistics_on_player_id"
   end
 
+  add_foreign_key "comments", "players"
   add_foreign_key "statistics", "players"
 end

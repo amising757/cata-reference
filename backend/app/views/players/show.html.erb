@@ -51,9 +51,11 @@
         <div style="margin: 8px 0; font-size: 16px;">
           <strong style="color: #8B4513;">Team:</strong> <%= @player.team %>
         </div>
-        <div style="margin: 8px 0; font-size: 16px;">
-          <strong style="color: #8B4513;">Jersey:</strong> #<%= @player.id + 20 %>
-        </div>
+        <% if @player.jersey_number.present? %>
+          <div style="margin: 8px 0; font-size: 16px;">
+            <strong style="color: #8B4513;">Jersey:</strong> #<%= @player.jersey_number %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -118,5 +120,54 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- Comments Section -->
+<div style="margin-top: 30px; padding: 20px 20px 0; border-top: 2px solid #8B4513;">
+  <div style="font-size: 20px; font-weight: bold; margin-bottom: 15px; color: #8B4513;">
+    💬 Comments (<%= @comments.count %>)
+  </div>
+
+  <!-- Add Comment Form -->
+  <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <%= form_with(model: [@player, @comment], local: true, style: "display: flex; flex-direction: column; gap: 15px;") do |form| %>
+      <div style="display: flex; gap: 15px;">
+        <div style="flex: 0 0 200px;">
+          <%= form.text_field :author_name, placeholder: "Your name", style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;" %>
+        </div>
+        <div style="flex: 1;">
+          <%= form.text_area :content, placeholder: "Share your thoughts about this player...", rows: 3, style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; resize: vertical;" %>
+        </div>
+      </div>
+      <div>
+        <%= form.submit "Post Comment", style: "background: #8B4513; color: white; border: none; padding: 12px 24px; border-radius: 4px; font-size: 14px; cursor: pointer; font-weight: bold;" %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Display Comments -->
+  <div style="margin-top: 20px;">
+    <% if @comments.any? %>
+      <% @comments.each do |comment| %>
+        <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div style="font-weight: bold; color: #8B4513; font-size: 16px;">
+              <%= comment.author_name %>
+            </div>
+            <div style="color: #666; font-size: 12px;">
+              <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+            </div>
+          </div>
+          <div style="color: #333; line-height: 1.5;">
+            <%= simple_format(comment.content) %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div style="text-align: center; color: #666; font-style: italic; padding: 40px 20px;">
+        No comments yet. Be the first to share your thoughts about <%= @player.name %>!
+      </div>
+    <% end %>
   </div>
 </div>

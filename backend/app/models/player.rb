@@ -1,5 +1,6 @@
 class Player < ApplicationRecord
   has_many :statistics, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   validates :name, presence: true
   validates :position, presence: true
